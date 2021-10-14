@@ -64,4 +64,5 @@
 <script src="{{ asset('js/datatable/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('js/datatable/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('administrator/masterlist/student.js') }}"></script>
+<script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
 @endsection

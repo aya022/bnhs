@@ -36,12 +36,12 @@ const strandTable = () => {
                             </td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" style="font-size:9px" class="btn btn-sm btn-info pl-3 pr-3 editStrand editStrand_${
+                                    <button type="button" class="btn btn-sm btn-info pl-3 pr-3 editStrand editStrand_${
                                         val.id
                                     }" id="${val.id}">
                         <i class="fas fa-edit"></i>            
                         </button>
-                                    <button type="button" style="font-size:9px" class="btn btn-sm btn-danger deleteStrand deleteStrand_${
+                                    <button type="button" class="btn btn-sm btn-danger deleteStrand deleteStrand_${
                                         val.id
                                     }" id="${val.id}">
                         <i class="fas fa-trash pl-2 pr-2"></i>            
@@ -148,7 +148,7 @@ $(document).on("click", ".deleteStrand", function () {
     })
         .done(function (response) {
             $(".deleteStrand_" + id).html("Delete");
-            getToast("success", "Success", "deleted one record");
+            getToast("success", "Success", "Strand has been deleted!");
             strandTable();
         })
         .fail(function (jqxHR, textStatus, errorThrown) {

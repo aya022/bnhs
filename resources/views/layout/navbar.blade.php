@@ -162,7 +162,6 @@
                 </form>
             </div>
         </li>
-
         @endif
     </ul>
 </nav>

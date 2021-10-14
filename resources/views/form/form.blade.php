@@ -55,7 +55,7 @@
                 <form id="enrollForm" autocomplete="off">@csrf
                     <div class="row">
                         <div class="col-12 col-md-10 offset-md-1 col-lg-12 offset-lg-0 ">
-                            <div class="card shadow-sm">
+                            {{-- <div class="card shadow-sm">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-1 text-center">
@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="card card-primary shadow">
                                 <div class="row m-0">
                                     <div class="col-12 col-md-12 col-lg-4 p-0">

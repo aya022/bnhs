@@ -48,20 +48,20 @@
                                         </div>
                                         <div class="col-lg-7"><br>
                                             <h5> <i>Dear <b>User</b>,</i></h5><br>
-                                            <h5>
+                                            <p>
                                                 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Welcome to our School new Admission Portal. Please fill in the form after this welcome message to apply for the school admission. Pleace complete and be accurate about the information you provide on the perspective field to avoid inconvinience. Plese read carefully and understand the form before you click the submit. 
                                                 <br><br><b>Thank you</b>.
-                                            </h5>
+                                            </p>
                                             
                                             <br>
                                             <hr style="border-color: #3366cc;">
                                                 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <a href="{{ route('auth.login') }}" class="btn btn-outline-warning btn-block"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Back</a>
+                                                    <a href="{{ route('auth.login') }}" class="btn btn-outline-secondary btn-block"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Back</a>
                                                 </div>
                                                 <div class="col-6">
-                                                    <a href="{{ route('form') }}" class="btn btn-primary btn-block"><i class="fas fa-check"></i>&nbsp;&nbsp;Proceed</a>
+                                                    <a href="{{ route('form') }}" class="btn btn-outline-success btn-block"><i class="fas fa-check"></i>&nbsp;&nbsp;Proceed</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,7 +11,7 @@
       <hr>
         <div class="row mb-2">
             <div class="col-12">
-                <h3><i class="fab fa-dropbox color-font"></i>&nbsp;&nbsp;Dashboard</h3>
+                <h3><i class="fas fa-desktop color-font"></i>&nbsp;&nbsp;Dashboard</h3>
             </div>
         </div>
       <hr>

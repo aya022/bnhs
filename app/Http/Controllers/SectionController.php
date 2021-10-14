@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 
 class SectionController extends Controller
 {
+    // check if Academic Year is Active
     public function list($grade_level)
     {
         if (empty(Helper::activeAY())) {
@@ -25,11 +26,7 @@ class SectionController extends Controller
         if (empty(Helper::activeAY())) {
             return response()->json(['error' => 'No Academic Year Active']);
         } else {
-            /**
-             * 
-             * FOR UPDATE
-             * 
-             */
+        //    FOR UPDATE
             $teacher = Teacher::find($request->teacher_id);
             if (isset($request->id)) {
                 $currentTeacherID =  DB::table('sections')
@@ -53,15 +50,11 @@ class SectionController extends Controller
                     ]);
                 }
             } else {
-                /**
-                 * 
-                 * FOR CREATE
-                 * 
-                 */
+                // FOR CREATE
                 $d2 = DB::table('sections')->select("teacher_id", "section_name")->where('school_year_id', Helper::activeAY()->id)
                     ->pluck('teacher_id', 'section_name')->toArray();
                 if (in_array($request->teacher_id, $d2) || in_array(Str::title($request->section_name), $d2)) {
-                    return response()->json(['error' => 'This teacher is already assign as a adviser']);
+                    return response()->json(['error' => 'This teacher is already assign as an adviser']);
                 } else {
                     return $teacher->section()->create([
                         'school_year_id' => Helper::activeAY()->id,
@@ -76,7 +69,6 @@ class SectionController extends Controller
 
     public function edit(Section $section)
     {
-
         return response()->json($section);
     }
 
@@ -92,7 +84,7 @@ class SectionController extends Controller
         } else {
             $data = Section::where([['school_year_id', Helper::activeAY()->id], ['section_name', $request->section_name]])->exists();
             if ($data) {
-                return response()->json(['error' => 'Section name is Already added']);
+                return response()->json(['error' => 'Section name is Already added!']);
             }
         }
     }

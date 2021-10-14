@@ -13,24 +13,16 @@
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
-    <!-- General CSS Files -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}"> --}}
 
     <!-- CSS Libraries -->
     @yield('moreCss')
-    {{-- <link rel="stylesheet" href="{{ asset('css/toast/iziToast.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}"> --}}
-
-    <!-- Template CSS -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/components.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/toast/iziToast.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div id="app">
         <div class="wrapper">
-            {{-- <div class="navbar-bg"></div> --}}
             @include('../layout/navbar')
             @include('../layout/main-sidebar')
             <!-- Main Content -->
@@ -49,22 +41,18 @@
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
-    {{-- <!-- General JS Scripts -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+
+    <!-- General JS Scripts -->
     <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
-    <script src="{{ asset('js/stisla.js') }}"></script>
     <script src="{{ asset('js/toast/iziToast.min.js') }}"></script>
-    <script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script> --}}
+    <script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
     <script src="{{ asset('js/global.js') }}"></script>
+
     <!-- JS Libraies -->
-    {{-- <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script> --}}
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     @yield('moreJs')
-    <!-- Template JS File -->
-    {{-- <script src="{{ asset('js/scripts.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script> --}}
 
 </body>
 

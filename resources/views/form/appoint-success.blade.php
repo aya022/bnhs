@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -19,7 +18,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* text-align: center; */
             min-height: 90vh;
         }
 
@@ -49,7 +47,12 @@
                         <div class="card card-outline card-success shadow-sm">
                             <div class="card-body">
                                 <h3>Appointment Slip</h3>
-                                <h6><span style="color: red;">*</span> Please take note or take a picture the appointment slip.</h6><br>
+                                <h6>
+                                    <span style="color: red;">*</span> Please take note or take a picture the appointment slip
+                                </h6>
+                                <h6>
+                                    <i>This will serve as proof of your appointment slip.</i>
+                                </h6><br>
                                 <table class="table">
                                     <tr>
                                         <td width="35%"><b>Name</b></td>
@@ -70,7 +73,7 @@
                                     <tr>
                                         <td colspan="2">
                                             <div class="text-center">
-                                                <a href="{{ route('auth.login') }}" class="btn btn-outline-warning btn-block mt-2"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Back</a>
+                                                <a href="{{ route('auth.login') }}" class="btn btn-outline-secondary btn-block mt-2"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Back</a>
                                             </div>
                                         </td>
                                     </tr>

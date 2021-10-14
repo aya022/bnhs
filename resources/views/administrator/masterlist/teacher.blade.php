@@ -89,7 +89,7 @@
                                     <th>Fullname</th>
                                     <th>Gender</th>
                                     <th>Username</th>
-                                    <th>Password</th>
+                                    {{-- <th>Password</th> --}}
                                     <th width="8%">Action</th>
                                 </tr>
                             </thead>

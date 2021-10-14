@@ -11,63 +11,69 @@
     <li class="nav-item">
       <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/my/dashboard')?'active':'' }}">
         <i class="nav-icon fas fa-house-user"></i>
-        <p>
-          Dashboard
-        </p>
+        <p>Dashboard</p>
       </a>
     </li>
     <li class="nav-item">
       <a href="#" class="nav-link">
-        <i class="nav-icon far fa-calendar-check"></i>
-          <p>
-            Announcement
-          </p>
+        <i class="nav-icon fas fa-bullhorn"></i>
+          <p>Announcement</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="nav-icon far fa-newspaper"></i>
+          <p>Blog</p>
       </a>
     </li>
     <li class="nav-item">
       <a href="{{ route('admin.appointment') }}" class="nav-link {{ request()->is('admin/my/appointment')?'active':'' }}">
         <i class="nav-icon far fa-calendar-check"></i>
-          <p>
-            Appointment
-          </p>
+        <p>Appointment</p>
       </a>
     </li>
+    <li class="nav-header">Enrollee's List</li>
     <li class="nav-item">
       <a href="{{ route('admin.enrollment') }}" class="nav-link {{ request()->is('admin/my/enrollment')?'active':'' }}">
         <i class="nav-icon far fa-address-card"></i>
-        <p>
-          Enrollee's List
-        </p>
+        <p>Enrollee</p>
       </a>
     </li>
       <li class="nav-header">Management Section</li>
       <li class="nav-item nav-item dropdown">
-        <a href="#" class="nav-link {{ request()->is('admin/my/section') || request()->is('admin/my/subject') || request()->is('admin/my/assign') || request()->is('admin/my/chairman')?'active':'' }}">
+        <a href="#" class="nav-link {{ request()->is('admin/my/section') || request()->is('admin/my/subject') || request()->is('admin/my/strand') || request()->is('admin/my/assign') || request()->is('admin/my/chairman')?'active':'' }}">
           <i class="nav-icon fas fa-tasks"></i>
           <p>
-              Management
-          <i class="fas fa-angle-left right"></i>
+             Management
+            <i class="fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
+          <li class="nav-header">Junior High</li>
           <li class="nav-item">
             <a href="{{ route('admin.section') }}" class="nav-link {{ request()->is('admin/my/section')?'active':'' }}">
             <i class="nav-icon fas fa-server"></i>
             <p>Section</p>
             </a>
           </li>
+          <li class="nav-header">Senior High</li>
+          <li class="nav-item">
+            <a href="{{ route('admin.strand') }}" class="nav-link {{ request()->is('admin/my/strand')?'active':'' }}">
+            <i class="nav-icon fas fa-server"></i>
+            <p>Strand</p>
+            </a>
+          </li>
+          <li class="nav-header">Others</li>
           <li class="nav-item">
             <a href="{{ route('admin.subject') }}" class="nav-link {{ request()->is('admin/my/subject')?'active':'' }}">
               <i class="nav-icon far fa-file-alt"></i>
-              <p>
-                  Subject
-              </p>
+              <p>Subject</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('admin.assign') }}" class="nav-link {{ request()->is('admin/my/assign')?'active':'' }}">
             <i class="nav-icon far fa-bookmark"></i>
-            <p>Assign</p>
+            <p>Assign Subject</p>
             </a>
           </li>
           <li class="nav-item">
@@ -141,7 +147,7 @@
           <li class="nav-item">
             <a href="{{ route('admin.user') }}" class="nav-link {{ request()->is('admin/my/user')?'active':'' }}">
             <i class="nav-icon fas fa-users-cog"></i>
-            <p>Manage Users</p>
+            <p>Profile</p>
             </a>
           </li>
         </ul>

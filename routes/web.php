@@ -6,18 +6,24 @@ use App\Http\Controllers\AssignController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BackSubjectController;
 use App\Http\Controllers\ChairmanController;
+use App\Http\Controllers\ChairmanSHSController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\EnrollmentSHSController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormSection;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StrandController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentSHSController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\SubjectSHSController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TeacherSHSController;
 use App\Http\Controllers\UserController;
 use App\Models\Enrollment;
 use Illuminate\Support\Facades\Artisan;
@@ -44,19 +50,14 @@ Route::middleware(['guest:web', 'guest:teacher', 'guest:student', 'preventBackHi
 
 //logout
 Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
 //pre enrollment
 Route::get('welcome', [FormController::class, 'welcome'])->name('welcome');
 Route::get('done/{tracking}', [FormController::class, 'done'])->name('done');
 Route::get('form', [FormController::class, 'form'])->name('form');
 Route::post('form/save', [FormController::class, 'store']);
 Route::get('form/check/lrn/{lrn}', [FormController::class, 'checkLRN']);
-
-
-// Route::get('welcome', [FormSection::class, 'welcome'])->name('welcome');
-// Route::get('done/{tracking}', [FormSection::class, 'done'])->name('done');
-// Route::get('form', [FormSection::class, 'form'])->name('form');
-// Route::post('form/save', [FormSection::class, 'store']);
-// Route::get('form/check/lrn/{lrn}', [FormSection::class, 'checkLRN']);
+Route::get('form/strand', [FormController::class, 'strandListForm']);
 
 //appointment
 Route::get('appoint/register', [AppointmentController::class, 'appoint'])->name('appoint');
@@ -79,6 +80,12 @@ Route::middleware(['auth:web', 'preventBackHistory'])->name('admin.')->prefix('a
     Route::get('chart/population/by/sex', [ChartController::class, 'populationBySex']);
     Route::get('chart/population/by/curriculum', [ChartController::class, 'populationByCurriculum']);
 
+    //strand
+    Route::get('strand', [AdminController::class, 'strandAndTrack'])->name('strand');
+    Route::post('strand/save', [StrandController::class, 'storeStrand']);
+    Route::get('strand/list', [StrandController::class, 'listStrand']);
+    Route::get('strand/edit/{strand}', [StrandController::class, 'editStrand']);
+    Route::delete('strand/delete/{strand}', [StrandController::class, 'destroyStrand']);
 
     // admission route
     Route::get('admission', [AdminController::class, 'admission'])->name('admission');
@@ -127,13 +134,6 @@ Route::middleware(['auth:web', 'preventBackHistory'])->name('admin.')->prefix('a
     // profile-route
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');
     Route::post('profile/save', [AdminController::class, 'storeProfile']);
-
-    //strand and track
-    Route::get('strand', [AdminController::class, 'strandAndTrack'])->name('strand');
-    Route::post('strand/save', [StrandController::class, 'storeStrand']);
-    Route::get('strand/list', [StrandController::class, 'listStrand']);
-    Route::get('strand/edit/{strand}', [StrandController::class, 'editStrand']);
-    Route::delete('strand/delete/{strand}', [StrandController::class, 'destroyStrand']);
 
     // section-route
     Route::get('section', [AdminController::class, 'section'])->name('section');
@@ -202,7 +202,7 @@ Route::middleware(['auth:web', 'preventBackHistory'])->name('admin.')->prefix('a
 Route::middleware(['auth:teacher', 'preventBackHistory'])->name('teacher.')->prefix('teacher/my/')->group(function () {
     Route::get('dashboard', [TeacherController::class, 'dashboard'])->name('dashboard');
 
-    // chairman-manage-section-route
+    // chairman manage section route
     Route::get('section', [ChairmanController::class, 'section'])->name('section');
     Route::get('section/list', [ChairmanController::class, 'sectionList']);
     Route::post('section/save', [ChairmanController::class, 'sectionSave']);
@@ -237,13 +237,12 @@ Route::middleware(['auth:teacher', 'preventBackHistory'])->name('teacher.')->pre
     Route::get('filter/barangay/{curriculum}', [ChairmanController::class, 'filterbarangay']);
     Route::get('dash/monitor', [ChairmanController::class, 'dashMonitor']);
     Route::get('print/report/{section}', [ChairmanController::class, 'printReport']);
-    // Route::get('autofill/{roll_no}', [ChairmanController::class, 'autofill']);
 
-    //enrollment form manually aading student
+    //enrollment form manually adding student
     Route::get('check/lrn/{lrn}/{curriculum}/{status}', [EnrollmentController::class, 'checkLRN']);
     Route::post('save', [EnrollmentController::class, 'store']);
 
-    // for advicer route
+    // for adviser route
     Route::get('class/monitor', [TeacherController::class, 'classMonitor'])->name('class.monitor');
     Route::get('class/monitor/list', [EnrollmentController::class, 'myClass']);
     Route::post('class/monitor/dropped/{enrollment}', [EnrollmentController::class, 'dropped']);
@@ -262,6 +261,21 @@ Route::middleware(['auth:teacher', 'preventBackHistory'])->name('teacher.')->pre
     Route::get('grading/load/subject', [TeacherController::class, 'loadMySection']);
     Route::get('grading/load/student/{section}/{subject}', [TeacherController::class, 'loadMyStudent']);
     Route::post('grade/student/now', [GradeController::class, 'gradeStudentNow']);
+
+    //senior high-
+    Route::get('senior/enrollee', [ChairmanSHSController::class, 'seniorEnrollee'])->name('senior.enrollee.page');
+    Route::get('senior/student/enrolle/{strand}/{term}', [ChairmanSHSController::class, 'enrolleeSort']);
+    //shs filter
+    Route::get('senior/enrollee/filter/section/senior/{strand}', [EnrollmentSHSController::class, 'filterSection']); 
+    Route::post('senior/enrollee/save', [EnrollmentSHSController::class, 'walkinEnrollee']); 
+    //shs walk-in
+    Route::delete('senior/enrollee/delete/{enrollment}', [EnrollmentSHSController::class, 'destroy']); 
+    //shs delete
+    Route::get('senior/enrollee/edit/{enrollment}', [EnrollmentSHSController::class, 'editEnrollee']); 
+    //shs delete
+    Route::post('senior/enrollee/section/set', [EnrollmentSHSController::class, 'setSection']);
+    Route::get('senior/enrollee/monitor/section/{strand}/{term}', [ChairmanSHSController::class, 'monitorSection']);
+    Route::get('senior/enrollee/print/report/{section}/{term}', [ChairmanSHSController::class, 'printReport']);
 
     // export file
     Route::get('export/excel/{format}/{status}/{curriculum}/{grade_level}', [ExportController::class, 'exportNewEnrollee']);

@@ -23,7 +23,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="card">
+                    <div class="card card-outline card-primary">
                         <div class="card-body">
                             <div class="float-right">
                                 <div class="form-row align-items-center mt-3 ml-4 pb-0">
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-striped" style="font-size: 13px">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -65,7 +65,7 @@
                     </div>
                 </div><!-- col-lg-8 -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="card">
+                    <div class="card card-outline card-info">
                         <div class="card-body m-1">
                             <form id="sectionForm">@csrf
                                 <input type="hidden" name="id">
@@ -103,9 +103,9 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btnSaveSection"
+                                <button type="submit" class="btn btn-outline-primary btnSaveSection"
                                     {{ (session()->has('sessionAY')!="")?now()->year==(1-session('sessionAY')->to)?'disabled':'':'' }}>Submit</button>
-                                <button type="submit" class="btn btn-warning cancelSection">Cancel</button>
+                                <button type="submit" class="btn btn-outline-warning cancelSection">Cancel</button>
                             </form>
                         </div>
                     </div>
@@ -117,6 +117,6 @@
 @endsection
 
 @section('moreJs')
-{{-- <script src="{{ asset('js/select2/select2.full.min.js') }}"></script> --}}
+<script src="{{ asset('js/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('administrator/management/section.js') }}"></script>
 @endsection

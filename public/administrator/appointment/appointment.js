@@ -30,15 +30,8 @@ let myAllAppointment = () => {
         });
 };
 myAllAppointment();
-/**
- *
- *
- *
- *
- *
- *
- *
- */
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 $("#btnModalHoliday").on("click", function () {
     $("#holidayModal").modal("show");
@@ -73,10 +66,11 @@ $("#holidayForm").submit(function (e) {
     })
         .done(function (response) {
             $(".btnSaveHoliday").html("Save").attr("disabled", false);
-            getToast("success", "Success", "Successfully added new Date");
+            getToast("success", "Success", "Successfully added new Holiday");
             document.getElementById("holidayForm").reset();
             $('input[name="id"]').val("");
             tableHoliday.ajax.reload();
+            document.getElementById("myEvent").reload();
             myAllAppointment();
         })
         .fail(function (jqxHR, textStatus, errorThrown) {
@@ -120,7 +114,7 @@ let tableHoliday = $("#tableHoliday").DataTable({
             data: null,
             render: function (data) {
                 return `
-                    <button class="btn btn-sm btn-primary btnEdit btnload_${data.id}" value="${data.id}"><i class="far fa-edit"></i></button>
+                    <button class="btn btn-sm btn-info btnEdit btnload_${data.id}" value="${data.id}"><i class="far fa-edit"></i></button>
                     <button class="btn btn-sm btn-danger btnDelete btnDLoad_${data.id}" value="${data.id}"><i class="far fa-trash-alt"></i></button>
                 `;
             },
@@ -199,6 +193,7 @@ $(document).on("click", ".btnDelete", function () {
             $(".btnDLoad_" + id)
                 .html("Edit")
                 .attr("disabled", false);
+                getToast("info", "Success", "Successfully Deleted!");
             tableHoliday.ajax.reload();
         })
         .fail(function (jqxHR, textStatus, errorThrown) {
@@ -240,7 +235,6 @@ let myEvent = () => {
         header: {
             right: "prev,next today",
             left: "title",
-            // right: "month",
         },
         weekends: false,
         initialView: "dayGridMonth",

@@ -14,7 +14,7 @@
         <hr>
         <div class="row mb-2 justify-content-between">
             <div class="col-sm-6">
-                <h3><i class="fab fa-dropbox color-font"></i>&nbsp;&nbsp;Enrollee's List</h3>
+                <h3><i class="fas fa-users color-font"></i>&nbsp;&nbsp;Enrollee's List</h3>
             </div>
             <div class="col-sm-6">
                 <div class="float-right">
@@ -34,7 +34,7 @@
         </div>
         <hr>
         <div class="section-body">
-            <div class="card">
+            <div class="card card-outline card-primary">
                 <div class="card-body">
     
                     <div class="">

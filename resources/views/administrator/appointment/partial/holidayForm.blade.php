@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content pb-0">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="holidayModalLabel">Holiday/Appointment</h5>
+                    <h5 class="modal-title" id="holidayModalLabel">Set Holiday</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelHoliday"><i class="far fa-times-circle"></i>&nbsp;&nbsp;Close</button>
-                    <button type="submit" class="btn btn-info btnSaveHoliday"><i class="far fa-save"></i>&nbsp;&nbsp;Save</button>
+                    <button type="submit" class="btn btn-primary btnSaveHoliday"><i class="far fa-save"></i>&nbsp;&nbsp;Submit</button>
                 </div>
             </div>
         </div>

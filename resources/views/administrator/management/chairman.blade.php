@@ -46,9 +46,9 @@
                                     </div>
                                     <div class="col">
                                         <button type="submit"
-                                            class="btn btn-primary my-1 pl-4 pr-4 btnSavechairman">Save</button>
+                                            class="btn btn-outline-primary btn-sm my-1 pl-4 pr-4 btnSavechairman">Save</button>
                                         <button type="submit"
-                                            class="btn btn-warning my-1 pl-4 pr-4 cancelchairman">Cancel</button>
+                                            class="btn btn-outline-warning btn-sm my-1 pl-4 pr-4 cancelchairman">Cancel</button>
                                     </div>
                                 </div>
                             </form>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="shortcut icon" href="{{ asset('image/logo/bn.jpg') }}">
     <title>eBNHS - Admission</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
@@ -15,27 +16,13 @@
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <!-- Toast -->
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
-    <!-- General CSS Files -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}"> --}}
 
-    <!-- CSS Libraries -->
-    {{-- <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css"> --}}
-
-    <!-- Template CSS -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/toast/iziToast.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/components.css') }}"> --}}
     <style>
-        .center-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            /* text-align: center; */
-            min-height: 100vh;
-        }
-        .login {
+        .login, .iconColor {
             color: #3366cc;
+        }
+        .backgroundColor {
+            background-color: #fff;
         }
     </style>
 </head>
@@ -53,10 +40,12 @@
                         </button>
                     </div>
                     <div class="modal-body text-center">
-                        <h5 class="txt"></h5>
+                        <h5 class="txt text-danger"></h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            <i class="fas fa-arrow-circle-left"></i>&nbsp;&nbsp;Close
+                        </button>
                     </div>
                 </div>
             </div>
@@ -99,8 +88,8 @@
                                                 <label>LRN (Learner Reference Number)</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="far fa-id-card"></i>
+                                                        <div class="input-group-text backgroundColor">
+                                                            <i class="far fa-id-card iconColor"></i>
                                                         </div>
                                                     </div>
                                                     <input name="roll_no" type="text" class="form-control" autofocus
@@ -112,6 +101,7 @@
                                                 <label>Status</label>
                                                 <select name="status" class="form-control" id="">
                                                     <option value="new">Incoming grade 7</option>
+                                                    <option value="new_eleven">Incoming grade 11</option>
                                                     <option value="transferee">Transferee</option>
                                                     <option value="balikAral">Balik Aral</option>
                                                 </select>
@@ -129,8 +119,8 @@
                                                     <option value="8">Grade 8</option>
                                                     <option value="9">Grade 9</option>
                                                     <option value="10">Grade 10</option>
-                                                    {{-- <option value="11">Grade 11</option>
-                                                    <option value="12">Grade 12</option> --}}
+                                                    <option value="11">Grade 11</option>
+                                                    <option value="12">Grade 12</option>
                                                 </select>
                                             </div>
                                             <div class="form-group" id="forcurriculum">
@@ -144,23 +134,18 @@
                                                     <option value="SPJ">SPJ - Special Program Journalism</option>
                                                 </select>
                                             </div>
-                                            {{-- <div class="form-group" id="forStrand">
-                                                <label>Strand</label>
+                                            <div class="form-group" id="forStrand">
+                                                <label>Strand & Specialization</label>
                                                 <select name="strand" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="STEM">STEM - Science Technology Engineering and
-                                                        Mathematics</option>
-                                                    <option value="BEC">BEC - Basic Education Curriculum</option>
-                                                    <option value="SPA">SPA - Special Program Art</option>
-                                                    <option value="SPJ">SPJ - Special Program Journalism</option>
+                                                    <option value="">Select Strand</option>
                                                 </select>
-                                            </div> --}}
+                                            </div>
                                             <div class="form-group floating-addon">
                                                 <label>Last school attended</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fa fa-graduation-cap" style="font-size: 13px"></i>
+                                                        <div class="input-group-text backgroundColor">
+                                                            <i class="fa fa-graduation-cap iconColor" style="font-size: 13px"></i>
                                                         </div>
                                                     </div>
                                                     <input name="last_school_attended" type="text" class="form-control"
@@ -217,7 +202,6 @@
                                                         <label>Region</label>
                                                         <select name="region_text" id="region" class="custom-select"
                                                             required>
-                                                            {{-- <option value="region"></option> --}}
                                                         </select>
                                                         <input type="hidden" name="region" id="">
                                                     </div>
@@ -225,15 +209,13 @@
                                                         <label>Province</label>
                                                         <select name="province_text" id="province" class="custom-select"
                                                             required>
-                                                            {{-- <option value="province"></option> --}}
                                                         </select>
                                                         <input type="hidden" name="province" id="">
                                                     </div>
                                                     <div class="form-group col-md-3">
-                                                        <label>Town</label>
+                                                        <label>Municipality</label>
                                                         <select name="city_text" id="city" class="custom-select"
                                                             required>
-                                                            {{-- <option value="city"></option> --}}
 
                                                             <input type="hidden" name="city" id="">
                                                         </select>
@@ -242,7 +224,6 @@
                                                         <label>Barangay</label>
                                                         <select name="barangay_text" id="barangay" class="custom-select"
                                                             required>
-                                                            {{-- <option value="barangay"></option> --}}
                                                         </select>
                                                         <input type="hidden" name="barangay" id="">
                                                     </div>
@@ -287,10 +268,10 @@
                                                     <div class="row">
                                                         <div class="col-6">
                                                             
-                                                            <a href="{{ route('auth.login') }}" class="btn btn-warning float-left btn-block"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Back</a>
+                                                            <a href="{{ route('auth.login') }}" class="btn btn-outline-secondary float-left btn-block"><i class="fas fa-arrow-circle-left"></i>&nbsp;&nbsp;Back</a>
                                                         </div>
                                                         <div class="col-6">
-                                                            <button type="submit" class="btn btn-round btn-primary btn-block btnEnroll">
+                                                            <button type="submit" class="btn btn-outline-primary btn-block btnEnroll">
                                                                 <i class="fas fa-check"></i>&nbsp;&nbsp; Submit
                                                             </button>
                                                         </div>
@@ -323,26 +304,12 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     
-    {{-- <!-- General JS Scripts -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <!-- General JS Scripts -->
     <script src="{{ asset('js/popper.min.js') }}">
-    </script>
-    <script src="{{ asset('js/bootstrap.min.js') }}">
-    </script> --}}
     <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
-    {{-- <script src="{{ asset('js/stisla.js') }}"></script>
-
-    <!-- JS Libraies -->
-
-    <!-- Template JS File -->
-    <script src="{{ asset('js/scripts.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/toast/iziToast.min.js') }}"></script> --}}
-    <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js">
-    </script>
-    <script src="{{ asset('js/global.js') }}">
-    </script>
+    <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
+    <script src="{{ asset('js/global.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/form.js') }}"></script>

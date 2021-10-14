@@ -14,7 +14,7 @@
         <hr>
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h3><i class="fab fa-dropbox color-font"></i>&nbsp;&nbsp;Dashboard</h3>
+                <h3><i class="fas fa-desktop color-font"></i>&nbsp;&nbsp;Dashboard</h3>
                 <p class="text-secondary">Active Academic Year :{{ empty($activeAY)?'No active academic year':'S/Y '.$activeAY->from.'-'.$activeAY->to }}</p>
             </div>
         </div>
@@ -82,7 +82,7 @@
             {{-- <div class="col-lg-8 col-md-8 col-12 col-sm-12"> --}}
                 {{-- <div class="row"> --}}
                     <div class="col-md-6 col-lg-6 col-12 col-sm-12">
-                        <div class="card card-outline card-warning shadow-sm">
+                        <div class="card card-outline card-primary shadow-sm">
                             <div class="card-header">
                                 <h6>Population by Sex</h6>
                             </div>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-12 col-sm-12">
-                        <div class="card card-outline card-warning shadow-sm">
+                        <div class="card card-outline card-primary shadow-sm">
                             <div class="card-header">
                                 <h6>Population by Curriculum</h6>
                             </div>

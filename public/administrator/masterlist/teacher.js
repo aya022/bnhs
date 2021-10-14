@@ -26,7 +26,7 @@ const table_teacher = $("#teacherTable").DataTable({
         },
         { data: "teacher_gender" },
         { data: "username" },
-        { data: "orig_password" },
+        // { data: "orig_password" },
         {
             data: null,
             render: function (data) {

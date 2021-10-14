@@ -40,12 +40,12 @@ const sectioTable = (level) => {
                             </td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" style="font-size:9px" class="btn btn-sm btn-info pl-3 pr-3 editSection editSec_${
+                                    <button type="button" class="btn btn-info btn-sm pl-3 pr-3 editSection editSec_${
                                         val.id
-                                    }" id="${val.id}">Edit</button>
-                                    <button type="button" style="font-size:9px" class="btn btn-sm btn-danger deleteSection deleteSec_${
+                                    }" id="${val.id}"><i class="fas fa-edit"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm deleteSection deleteSec_${
                                         val.id
-                                    }" id="${val.id}">Delete</button>
+                                    }" id="${val.id}"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -53,9 +53,9 @@ const sectioTable = (level) => {
                 });
             } else {
                 htmlHold = `
-                            <tr>
-                                <td colspan="5" class="text-center">No available data</td>
-                            </tr>`;
+                <tr>
+                    <td colspan="5" class="text-center">No available data</td>
+                </tr>`;
             }
             $("#sectionTable").html(htmlHold);
         })
@@ -160,7 +160,7 @@ $(document).on("click", ".deleteSection", function () {
     })
         .done(function (response) {
             $(".deleteSec" + id).html("Delete");
-            getToast("success", "Success", "deleted one record");
+            getToast("info", "Success", "Record has been deleted!");
             sectioTable($("#selectedGL").val());
         })
         .fail(function (jqxHR, textStatus, errorThrown) {

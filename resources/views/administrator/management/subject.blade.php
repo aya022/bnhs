@@ -13,7 +13,7 @@
     <section class="content-header">
         <hr>
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-12">
                 <h3><i class="fas fa-book-reader color-font"></i>&nbsp;&nbsp;Manage Subject</h3>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="card">
+                    <div class="card card-outline card-primary">
                         <div class="card-body">
                             <div class="float-right">
                                 <div class="form-row align-items-center mt-3 ml-4 pb-0">
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-striped" style="font-size: 11px">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -63,7 +63,7 @@
                     </div>
                 </div><!-- col-lg-8 -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="card">
+                    <div class="card card-outline card-info">
                         <div class="card-body m-1">
                             <form id="subjectForm">@csrf
                                 <input type="hidden" name="id">
@@ -94,8 +94,8 @@
                                         <option value="SPJ">SPJ - Special Program Journalism</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btnSaveSubject">Submit</button>
-                                <button type="submit" class="btn btn-warning cancelSubject">Cancel</button>
+                                <button type="submit" class="btn btn-outline-primary btnSaveSubject">Submit</button>
+                                <button type="submit" class="btn btn-outline-warning cancelSubject">Cancel</button>
                             </form>
                         </div>
                     </div>
